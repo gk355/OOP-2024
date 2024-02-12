@@ -11,31 +11,27 @@ public class Arrays extends PApplet
 	
 	public void settings()
 	{
-		float max = rainfall[0];
 		int maxpos = 0;
-		float min = rainfall[0];
 		int minpos = 0;
 		float average = 0;
 		size(500, 500);
 		for (int i = 0; i < months.length; i ++)
 		{
 			println("Month: " + months[i] + "\t" + rainfall[i]);
-			if (rainfall[i] > max)
+			if (rainfall[i] > rainfall[maxpos])
 			{
-				max = rainfall[i];
 				maxpos = i;
 			}
-			if (rainfall[i] < min)
+			if (rainfall[i] < rainfall[minpos])
 			{
-				min = rainfall[i];
 				minpos = i;
 			}
 			average += rainfall[i];
 		}
 		average /= rainfall.length;
-		println("Most rainfall was in " + months[maxpos] + " - " + max + " mm");
+		println("Most rainfall was in " + months[maxpos] + " - " + rainfall[maxpos] + " mm");
 		println("Average rainfall across the months - " + average + " mm");
-		println("Least rainfall was in " + months[minpos] + " - " + min + " mm");
+		println("Least rainfall was in " + months[minpos] + " - " + rainfall[minpos] + " mm");
 	}
 
 	public void setup() {
